@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../engine/include/engine.h
+SDL2/SDL.h
+-
+
+/home/jae/Workspace/Personal/workspace/sheep-shooter/engine/engine.cpp
+engine.h
+-
+

@@ -1,0 +1,37 @@
+[Buildset]
+BuildItems=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x01\x00\x00\x00\x1c\x00O\x00G\x00L\x00_\x00S\x00P\x00O\x00T\x00_\x00L\x00I\x00G\x00H\x00T)
+
+[CMake]
+Build Directory Count=1
+Current Build Directory Index-Host System=0
+
+[CMake][CMake Build Directory 0]
+Build Directory Path=/home/jae/Workspace/OGL_SPOT_LIGHT/_build
+Build Type=\n
+CMake Binary=/usr/bin/cmake
+CMake Executable=/usr/bin/cmake
+Environment Profile=
+Extra Arguments=
+Install Directory=/usr/local
+Runtime=Host System
+
+[Launch]
+Launch Configurations=Launch Configuration 0
+
+[Launch][Launch Configuration 0]
+Configured Launch Modes=execute
+Configured Launchers=nativeAppLauncher
+Name=main
+Type=Native Application
+
+[Launch][Launch Configuration 0][Data]
+Arguments=
+Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x02\x00\x00\x00\x1c\x00O\x00G\x00L\x00_\x00S\x00P\x00O\x00T\x00_\x00L\x00I\x00G\x00H\x00T\x00\x00\x00\x08\x00m\x00a\x00i\x00n)
+Dependency Action=Build
+EnvironmentGroup=
+Executable=file:///home/jae/Workspace/OGL_SPOT_LIGHT/run.sh
+External Terminal=konsole --noclose --workdir %workdir -e %exe
+Project Target=OGL_SPOT_LIGHT,main
+Use External Terminal=false
+Working Directory=file:///home/jae/Workspace/OGL_SPOT_LIGHT/_build/bin
+isExecutable=true

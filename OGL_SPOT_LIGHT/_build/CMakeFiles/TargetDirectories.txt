@@ -1,0 +1,5 @@
+/home/jae/Workspace/OGL_SPOT_LIGHT/_build/CMakeFiles/rebuild_cache.dir
+/home/jae/Workspace/OGL_SPOT_LIGHT/_build/CMakeFiles/main.dir
+/home/jae/Workspace/OGL_SPOT_LIGHT/_build/CMakeFiles/edit_cache.dir
+/home/jae/Workspace/OGL_SPOT_LIGHT/_build/CMakeFiles/GLAD.dir
+/home/jae/Workspace/OGL_SPOT_LIGHT/_build/CMakeFiles/STB_IMAGE.dir

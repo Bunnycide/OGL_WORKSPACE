@@ -1,0 +1,124 @@
+#include <iostream> 
+
+#include <SDL2/SDL.h>
+#include "util.h"
+
+#define WINDOW_SIZE 640,480
+#define WINDOW_FLAGS SDL_WINDOW_OPENGL
+
+int main(int argc, char**) {
+	 
+	 SDL_Window* window;
+
+	 window = SDL_CreateWindow(  "OGL", // window title
+				     SDL_WINDOWPOS_CENTERED, // at center
+				     SDL_WINDOWPOS_CENTERED, // at center
+				     WINDOW_SIZE, 
+				     WINDOW_FLAGS); // enable opengl
+
+	 SDL_GLContext glcontext = SDL_GL_CreateContext(window);
+
+	 SDL_Event event;
+
+	 glewExperimental = GL_TRUE;
+
+	 glewInit();
+        
+	 glEnable(GL_DEPTH_TEST);
+	 glDepthFunc(GL_LESS);
+	 
+	 glClearColor(0.7, 0.7, 0.7, 1);
+      
+	 GLuint program = loadShaderProgram(
+					    loadVertShader("./shaders/base.vert"),
+					    loadFragShader("./shaders/base.frag")
+					    );
+	 
+	 // Data here
+
+	 GLfloat points[] = {
+			     // triangle 1
+			     -0.75f, 0.5f, 0.0f,
+			     0.0f, -0.5f, 0.0f,
+			     -0.75f, -0.5f, 0.0f,
+
+			     // triangle 2
+			     0.0f, 0.5f, 0.0f,
+			     0.75f, -0.5f, 0.0f,
+			     0.0f, -0.5f, 0.0f
+			     
+	 };
+
+	 GLfloat colors[] = {
+			     // color 1
+			     0.7f, 0.0f, 0.0f, 1.0f,
+			     0.7f, 0.0f, 0.0f, 1.0f,
+			     0.7f, 0.0f, 0.0f, 1.0f,
+			     
+			     // color 2
+			     0.0f, 0.7f, 0.0f, 1.0f,
+			     0.0f, 0.7f, 0.0f, 1.0f,
+			     0.0f, 0.7f, 0.0f, 1.0f
+	 };
+
+
+	 GLuint vbos[2], vaos[2], color_vbos[2];
+
+	 glGenBuffers(2, vbos);
+	 glGenBuffers(2, color_vbos);
+	 glGenVertexArrays(2, vaos);
+
+	 // first triangle
+	 glBindVertexArray(vaos[0]);
+	 // vertices
+	 glBindBuffer(GL_ARRAY_BUFFER, vbos[0]);
+	 glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(float), points, GL_STATIC_DRAW);
+	 glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), NULL);
+	 // color
+	 glBindBuffer(GL_ARRAY_BUFFER, color_vbos[0]);
+	 glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(float), colors, GL_STATIC_DRAW);
+	 glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(float), NULL);
+	 
+	 glEnableVertexAttribArray(0);
+	 glEnableVertexAttribArray(1);
+
+	 // second triangle
+	 glBindVertexArray(vaos[1]);
+	 // vertices
+	 glBindBuffer(GL_ARRAY_BUFFER, vbos[1]);
+	 glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(float), points + 9, GL_STATIC_DRAW);
+	 glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), NULL);
+	 // color
+	 glBindBuffer(GL_ARRAY_BUFFER, color_vbos[1]);
+	 glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(float), colors + 12, GL_STATIC_DRAW);
+	 glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(float), NULL);
+	 
+	 glEnableVertexAttribArray(0);
+	 glEnableVertexAttribArray(1);
+
+	 glUseProgram(program);
+	 
+	 while(true){
+	   if(SDL_PollEvent(&event) == 1){            
+	     if(event.type == SDL_QUIT){
+	       break;
+	     }
+	   };	   
+	   
+	   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	   glBindVertexArray(vaos[0]);
+	   glDrawArrays(GL_TRIANGLES, 0, 3);
+
+	   glBindVertexArray(vaos[1]);
+	   glDrawArrays(GL_TRIANGLES, 0, 3);
+	   
+	   SDL_GL_SwapWindow(window);
+	 }
+
+	 SDL_GL_DeleteContext(glcontext);
+	 SDL_DestroyWindow(window);
+	 SDL_Quit();
+
+	 return 0;
+}

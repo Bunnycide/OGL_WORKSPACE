@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>Debug_OGL</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.cdt.core.cnature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>OGL</name>
+			<type>1</type>
+			<location>/home/jae/Workspace/OGL_LIGHT_DIRECTIONAL/_build/OGL</location>
+		</link>
+	</linkedResources>
+</projectDescription>
