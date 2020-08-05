@@ -1,1 +1,0 @@
-/usr/bin/c++  -lSDL2 -lSDL2main   CMakeFiles/main.dir/src/main.cpp.o  -o main  libengine.a 
