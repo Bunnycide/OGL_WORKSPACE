@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jae/OGL_WORKSPACE/OGL_DEPTH_TESTING/src/stb_image.cpp
+../stb/stb_image.h
+/home/jae/OGL_WORKSPACE/OGL_DEPTH_TESTING/stb/stb_image.h
+
+/home/jae/OGL_WORKSPACE/OGL_DEPTH_TESTING/stb/stb_image.h
+stb_image.h
+/home/jae/OGL_WORKSPACE/OGL_DEPTH_TESTING/stb/stb_image.h
+stdio.h
+-
+stdlib.h
+-
+stdarg.h
+-
+stddef.h
+-
+stdlib.h
+-
+string.h
+-
+limits.h
+-
+math.h
+-
+stdio.h
+-
+assert.h
+-
+stdint.h
+-
+emmintrin.h
+-
+intrin.h
+-
+arm_neon.h
+-
+
